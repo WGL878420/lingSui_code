@@ -25,6 +25,6 @@
 
 ----
 
-> 手机响应式表单（form_*.html）:
+> 移动端响应式表单（form_*.html）:
 
 ![表单](./image/form_1.jpg) <==> ![表单](./image/form_2.jpg)
