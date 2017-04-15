@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        html, body{
+          margin: 0;
+          padding: 0;
+          height: 100%;
+        }
+        #base_info{
+          margin: 9% 5% 3%;
+        }
+        .text{
+          width:100%;
+          text-align: center;
+          display: flex;
+          justify-content: space-between;
+        }
+        .text select{
+          width:32%;
+          font-size: 15px;
+          height: 40px;
+          background: #EFEFEF;
+          padding-left: 2%;
+        }
+        p{
+          font-size: 13px;
+          color: #D8D8D8;
+        }
+        .sex {
+          display: flex;
+          justify-content: space-between;
+        }
+        .sex [type=radio ]{
+            appearance:none;
+            -webkit-appearance:none;
+            width:48%;
+            height:30px;
+            margin-top: 2%;
+            font-size: 18px;
+            background: #EFEFEF;
+            outline: none;
+            text-align: center;
+          }
+
+        .sex input[type=radio]:before{
+          content:attr(xxx);
+        }
+
+        input[type=radio]:checked{
+            background: #4b8ce8;
+        }
+        #next{
+          margin-top: 10%;
+          /*position: absolute;
+          bottom: 20px;*/
+          height: 60px;
+          line-height: 60px;
+          text-align: center;
+          color: white;
+          background: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="base_info">
+      <!-- 名字输入框 -->
+      <input type="text" placeholder="姓名" style="line-height: 40px; width: 93%; background: #efefef; padding: 0 3%" />
+      <!--性别按钮-->
+      <div class="sex">
+         <input type="radio"  name="a" value="1" xxx="男" />
+         <input type="radio"  name="a" value="2" xxx="女" />
+      </div>
+
+      <!--年龄-->
+      <p>年龄</p>
+      <div class="text">
+          <select>
+              <option>1995</option>
+              <option>1996</option>
+              <option>1997</option>
+              <option>1998</option>
+              <option>1999</option>
+              <option>2000</option>
+          </select>
+
+          <select>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+          </select>
+
+          <select>
+            <option>01</option>
+            <option>02</option>
+            <option>03</option>
+            <option>04</option>
+            <option>05</option>
+          </select>
+       </div>
+
+      <!--所在城市-->
+      <p>所在城市</p>
+      <div class="text">
+         <select  style="width: 49%;">
+            <option>四川省</option>
+            <option>江西省</option>
+            <option>湖南省</option>
+            <option>湖北省</option>
+            <option>河北省</option>
+            <option>河南省</option>
+         </select>
+
+         <select style=" width: 49%;">
+              <option>成都市</option>
+              <option>广元市</option>
+              <option>绵阳市</option>
+              <option>南充市</option>
+              <option>江油市</option>
+              <option>达州市</option>
+         </select>
+      </div>
+
+      <!-- 所在学校-->
+      <p>所在学校</p>
+      <div class="text">
+        <select style="width: 100%;">
+          <option>成都七中</option>
+          <option>成都四中</option>
+          <option>成都九中</option>
+          <option>绵阳南山</option>
+          <option>北京七中</option>
+          <option>广元中学</option>
+          <option>苍溪中学</option>
+        </select>
+      </div>
+     <!-- 年级-->
+     <p>年级</p>
+     <div class="text">
+        <select style="width: 49%;">
+              <option>2017级</option>
+              <option>2018级</option>
+              <option>2019级</option>
+              <option>20120级</option>
+              <option>2021级</option>
+              <option>2022级</option>
+
+        </select>
+        <select style="width: 49%;">
+            <option>1班</option>
+            <option>2班</option>
+            <option>3班</option>
+            <option>4班</option>
+            <option>5班</option>
+            <option>6班</option>
+        </select>
+     </div>
+     <!-- 联系方式-->
+     <p>联系方式</p>
+     <input type="text" placeholder="手机号" style="font-size: 15px; height: 40px; width: 93%; background: #efefef; padding: 0 3%;">
+     <!-- 下一步 -->
+     <div id="next">
+       下一步
+     </div>
+
+    </div>
+</body>
+</html>
