@@ -6,7 +6,7 @@
 
 ----
 
-> 字典键值交换（[dict_Change.py](,/dict_Change.py)）：
+> 字典键值交换（[dict_Change.py](./dict_Change.py)）：
 
 ``` python
 
