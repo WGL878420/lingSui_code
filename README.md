@@ -2,6 +2,8 @@
 
 > 旋转木马轮播特效（[lunbo](./lunbo)）：
 
+[旋转木马](http://oojestrjh.bkt.clouddn.com/lunbo/index.html "链接")
+
 ![旋转木马特效](./image/lunbo.gif "旋转木马特效")
 
 ----
