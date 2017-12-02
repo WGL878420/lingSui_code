@@ -12,7 +12,69 @@
   </style>
 </head>
 
-
 <body>
+  <script>
+  // 定义 自执行函数
+  (function snowFlake() {
+    // 创建一个 div 节点
+    var flake = document.createElement('div');
+    // 雪花字符 ❄❉❅❆✻✼❇❈❊✥✺
+    flake.innerHTML = '❆';
+    // 设置元素 style
+    flake.style.cssText = 'position: absolute; color: #fff';
+
+    // 返回窗口的文档显示区的高度 | 相当于雪花下落结束时 Y 轴的位置
+    var documentHeight = window.innerHeight;
+    // 返回窗口的文档显示区的宽度 | 利用这个数来计算出雪花开始时 left 的值
+    var documentWidth = window.innerWidth;
+
+    // 定义生成一片雪花的时间 | 100毫秒
+    var produceSnowTime = 100;
+    // 设置第一个定时器，周期性生成一片雪花
+    setInterval(function () {
+      // 随机生成雪花下落，开始时 left 的值 | 相当于开始时 x 轴的位置
+      var startLeft = Math.random() * documentWidth;
+      // 随机生成雪花下落，结束时 left 的值 | 相当于结束时 x 轴的位置
+      var endLeft = Math.random() * documentWidth;
+
+      // 随机生成 雪花大小
+      var flakeSize = 5 + 20 * Math.random();
+      // 随机生成 雪花下落持续时间
+      var durationTime = 4000 + 7000 * Math.random();
+      // 随机生成 雪花下落 开始时透明度
+      var startOpacity = 0.7 + 0.3 * Math.random();
+      // 随机生成 雪花下落 结束时透明度
+      var endOpacity = 0.2 + 0.2 * Math.random();
+
+      // 克隆某个元素 | true：包括子节点
+      var cloneFlake = flake.cloneNode(true);
+      // 第一次修改 克隆雪花样式
+      cloneFlake.style.cssText += `
+      top: -20px;
+      left: ${ startLeft }px;
+      opacity: ${ startOpacity }px;
+      font-size: ${ flakeSize }px;
+      transition: ${ durationTime }ms;
+      `;
+
+      // 添加子节点
+      document.body.appendChild(cloneFlake);
+      // 当第一个定时器生成雪花时，修改 雪花样式，让雪花动起来
+      setTimeout(function () {
+        // 第二次修改样式 克隆雪花样式
+        cloneFlake.style.cssText += `
+        left: ${ endLeft }px;
+        top: ${ documentHeight }px;
+        opacity: ${ endOpacity };
+        `;
+        // 当雪花下落后，删除雪花
+        setTimeout(function () {
+          cloneFlake.remove();
+        }, durationTime);
+      }, 0)
+
+    }, produceSnowTime);
+  })();
+  </script>
 </body>
 </html>
