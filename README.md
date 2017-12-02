@@ -7,6 +7,9 @@
 ![旋转木马特效](./image/lunbo.gif "旋转木马特效")
 
 ----
+> 随机雪花飘落效果（[snownflake](./random_XueHua.html)）：
+
+[随机雪花](http://oojestrjh.bkt.clouddn.com/random_XueHua.html "雪花")
 
 > 字典键值交换（[dict_Change.py](./dict_Change.py)）：
 
