@@ -3,9 +3,9 @@
 
 */
 
-function randomArray (singers) {
-  // 空数组 | 长度为 5
-  let newArray = new Array(5);
+function randomArray (singers, len) {
+  // 空数组 | 长度为 len
+  let newArray = new Array(len);
   for (let i = 0; i < newArray.length; i++) {
     let length = singers.length;
     // 随机获取数组下标
@@ -17,5 +17,8 @@ function randomArray (singers) {
   return newArray;
 }
 
-let singers = ['张杰', '赵雷', '李健', '林志炫', '张碧晨', '梁博', '周笔畅', '张靓颖', '陈奕迅', '周杰伦', '王力宏', 'TFBoys', '李玉刚', '魏晨', '薛之谦'];
-console.log(randomArray(singers));
+let singers = [
+  '张杰', '赵雷', '李健', '林志炫', '张碧晨', '梁博', '周笔畅', '张靓颖', '陈奕迅', '周杰伦', '王力宏', 'TFBoys'
+];
+let len = 5;
+console.log(randomArray(singers, len));
