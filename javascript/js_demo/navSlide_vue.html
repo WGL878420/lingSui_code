@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <title>导航滑块特效</title>
+  <meta charset="utf-8" >
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
+  .nav {
+    margin: 40px;
+    position: relative;
+  }
+  .nav li {
+    float: left;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    background: #09f;
+    text-align: center;
+    cursor: pointer;
+  }
+  ul > li > span {
+    position: relative;
+    z-index: 2;
+  }
+  .nav > .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100px;
+    height: 50px;
+    background: #A8E957;
+    transition: all .5s ease-in-out;
+  }
+  </style>
+</head>
+<body>
+  <div id="app" class="nav clear" @mouseleave="nowIndex = 0">
+    <ul>
+      <li @mouseenter.stop="nowIndex = 0"><span>Tab One</span></li>
+      <li @mouseenter.stop="nowIndex = 1"><span>Tab Two</span></li>
+      <li @mouseenter.stop="nowIndex = 2"><span>Tab Three</span></li>
+      <li @mouseenter.stop="nowIndex = 3"><span>Tab Four</span></li>
+      <li @mouseenter.stop="nowIndex = 4"><span>Tab Five</span></li>
+      <li @mouseenter.stop="nowIndex = 5"><span>Tab Six</span></li>
+    </ul>
+    <div class="slider" :style="{ transform: 'translateX(' + nowIndex * 100 + 'px)' }"></div>
+  </div>
+
+  <script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      nowIndex: 0
+    }
+  });
+  </script>
+</body>
+</html>
