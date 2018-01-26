@@ -10,7 +10,7 @@
 
 ----
 
-> vue | 扇形扩散 （ [first_vue](./javascript/js_demo/sector_vue.html) ）：
+> vue | 扇形扩散 （ [sector_vue](./javascript/js_demo/sector_vue.html) ）：
 
 ![五行](./image/vue.gif)
 
