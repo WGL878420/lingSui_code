@@ -10,13 +10,13 @@
 
 ----
 
-> vue | 扇形扩散 （ [first_vue](./javascript/first_vue.html) ）：
+> vue | 扇形扩散 （ [first_vue](./javascript/js_demo/sector_vue.html) ）：
 
 ![五行](./image/vue.gif)
 
 ----
 
-> 随机雪花飘落效果（ [snownflake](./javascript/random_XueHua.html) ）：
+> 随机雪花飘落效果（ [snownflake](./javascript/js_demo/random_XueHua.html) ）：
 
 [随机雪花](http://oojestrjh.bkt.clouddn.com/random_XueHua.html "链接")
 
