@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+  <title>页面滚动动画 | react</title>
+  <meta charset="utf-8" >
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    display: flex;
+    justify-content: center;   /* 定义项目在主轴上的对齐方式 */
+    align-items: center;   /* 定义项目在交叉轴上如何对齐 */
+    width: 100vw;
+    height: 100vh;
+    background: pink;
+  }
+  .header h1 {
+    font-size: 30px;
+    color: white;
+  }
+  .about-wrapper {
+    width: 100vw;
+    height: 30em;
+  }
+  .about-text {
+    position: relative;
+    width: 30em;
+    height: 20em;
+  }
+  @keyframes slide-in {
+    100% {
+      left: 0;
+    }
+  }
+  .show {
+    position: absolute;
+    left: -30em;
+    width: 30em;
+    height: 20em;
+    animation: slide-in 1s forwards;
+  }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+
+  <script type="text/babel">
+
+  function Header() {
+    return (
+      <div className="header">
+        <h1>Title</h1>
+      </div>
+    );
+  }
+
+  class About extends React.Component {
+    render() {
+      return (
+        <div className="about-wrapper">
+          <div className="about-text">
+            <div className={ this.props.className }>
+              <h3>标题</h3>
+              <p>这是一段文字.</p>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
+  class App extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        className: 'hidden'
+      }
+    }
+    handleScroll() {
+      // 要获取当前页面的滚动条纵坐标位置
+      if (document.documentElement.scrollTop || document.body.scrollTop > 430) {
+        this.setState({
+          className: 'show'
+        });
+      }
+    }
+    componentDidMount() {
+      window.onscroll = () => this.handleScroll();
+    }
+    render() {
+      return (
+        <div>
+          <Header />
+          <About className={ this.state.className } />
+        </div>
+      );
+    }
+  }
+
+  ReactDOM.render(
+    <App />,
+    document.getElementById('app')
+  );
+  </script>
+</body>
+</html>
