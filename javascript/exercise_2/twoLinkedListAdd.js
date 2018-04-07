@@ -72,9 +72,9 @@ function addTwoLinkedList(link_1, link_2) {
 
 let a_1 = new LinkedList(2);
 let a_2 = new LinkedList(4);
-// let a_3 = new LinkedList(3);
+let a_3 = new LinkedList(3);
 a_1.next = a_2;
-// a_2.next = a_3;
+a_2.next = a_3;
 
 let b_1 = new LinkedList(5);
 let b_2 = new LinkedList(6);
