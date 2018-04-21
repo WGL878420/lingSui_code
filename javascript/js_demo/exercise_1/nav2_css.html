@@ -1,0 +1,85 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>css3 导航栏下划线跟随效果</title>
+  <style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    padding: 100px 100px 0 100px;
+  }
+  /* 公用样式 */
+  .nav {
+    position: relative;
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 32px;
+    cursor: pointer;
+    color: #333;
+    text-align: center;
+    margin: 20px;
+    transition-property: transform;
+    transition-duration: .5s;
+  }
+  #nav-1::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: deeppink;
+    z-index: -1;
+    /* 过渡 */
+    transition: width 1s;
+  }
+  #nav-1:hover {
+    transform: translateX(110px);
+  }
+  #nav-1:hover::before {
+    width: 200px;
+  }
+
+  #nav-2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    height: 2px;
+    background: deeppink;
+    transform: scaleX(0);
+    transition: transform 1s;
+  }
+  #nav-2:hover::before {
+    transform: scaleX(1);
+  }
+
+  #nav-3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    height: 2px;
+    background: deeppink;
+    transform: scaleX(0);
+    transform-origin: 100% 0;   /* 改变中心原点 */
+    transition: transform 1s;
+  }
+  #nav-3:hover::before {
+    transform: scaleX(1);
+    transform-origin: 0 0;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="nav" id="nav-1">Hover Me</div>
+  <div class="nav" id="nav-2">Hover Me</div>
+  <div class="nav" id="nav-3">Hover Me</div>
+</body>
+</html>
