@@ -1,0 +1,102 @@
+
+.page-title {
+  font-size: 17px;
+  text-align: center;
+  padding: 10px 15px;
+  position: relative;
+}
+.page-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #000;
+}
+
+.list-item {
+  position: relative;
+  height: 4rem;
+}
+.list-item::after {
+  content: '';
+  position: absolute;
+  left: .5rem;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  background: #ccc;
+}
+
+.list-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: .2rem;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  font-size: 0;
+}
+.list-box .list-img {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+}
+
+.list-item .list-content {
+  padding: 0.1rem 0 0.1rem 0.4rem;
+  position: relative;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.list-content .title {
+  display: block;
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-content .tips {
+  display: block;
+  font-size: 12px;
+  overflow: hidden;
+  color: #999;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-item .time {
+  display: block;
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  top: .1rem;
+  color: #666;
+}
+
+.list-item .delete {
+  position: absolute;
+  top: 0;
+  right: -5rem;
+  width: 5rem;
+  height: 4rem;
+  line-height: 5rem;
+  text-align: center;
+  font-size: 17px;
+  color: #fff;
+  background: #ff4949;
+}
