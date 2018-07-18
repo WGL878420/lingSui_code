@@ -79,19 +79,19 @@
 .list-content .tips {
   display: block;
   font-size: 12px;
-  overflow: hidden;
   color: #999;
   line-height: 20px;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .list-item .time {
-  display: block;
-  font-size: 12px;
   position: absolute;
   right: 0;
   top: .1rem;
+  display: block;
+  font-size: 12px;
   color: #666;
 }
 
@@ -101,7 +101,7 @@
   right: -5rem;
   width: 5rem;
   height: 4rem;
-  line-height: 5rem;
+  line-height: 4rem;
   text-align: center;
   font-size: 17px;
   color: #fff;

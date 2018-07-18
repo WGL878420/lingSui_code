@@ -69,13 +69,13 @@ export default {
       // changedTouches：涉及(引发)当前事件的手指的一个列表
       this.endX = event.changedTouches[0].clientX;
       // dataset 访问 data-* 自定义数据属性
-      if (parentElement.dataset.type == 0 && this.startX - this.endX > 30) {
+      if (parentElement.dataset.type === 0 && this.startX - this.endX > 30) {
         // 一次只能滑动一个
         this._resetSlide();
         parentElement.dataset.type = 1;
       }
 
-      if (parentElement.dataset.type == 1 && this.startX - this.endX < -30) {
+      if (parentElement.dataset.type === 1 && this.startX - this.endX < -30) {
         this._resetSlide();
         parentElement.dataset.type = 0;
       }
@@ -99,7 +99,7 @@ export default {
       let listItems = document.querySelectorAll('.list-item');
 
       for (let item of listItems) {
-        if (item.dataset.type == 1) {
+        if (item.dataset.type === 1) {
           return true;
         }
       }
