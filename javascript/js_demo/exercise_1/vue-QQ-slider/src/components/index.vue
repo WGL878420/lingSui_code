@@ -4,7 +4,7 @@
 
     <ul>
       <li class="list-item" v-for="(item, index) of list" :key="index" data-type="0">
-        <div class="list-box" @touchstart="touchStart" @touchend="touchEnd">
+        <div class="list-box" @touchstart="touchStart" @touchend="touchEnd" @click="handleClick">
           <img class="list-img" :src="item.imgUrl" alt="" />
           <section class="list-content">
             <p class="title">{{ item.title }}</p>
@@ -12,7 +12,7 @@
             <p class="time">{{ item.time }}</p>
           </section>
         </div>
-        <div class="delete">删除</div>
+        <div class="delete" @click="deleteItem" :data-index="index">删除</div>
       </li>
     </ul>
   </div>
@@ -56,17 +56,73 @@ export default {
     /*
      * 当手指放在屏幕上触发
      */
-    touchStart(event) {
+    touchStart (event) {
       // touches：当前位于屏幕上的所有手指的一个列表
-      // console.log(event.touches[0].clientX);
-      console.log(event.currentTarget);
+      this.startX = event.touches[0].clientX;
     },
     /*
      * 当手指从屏幕上离开时触发
      */
-    touchEnd() {
+    touchEnd (event) {
+      // event.currentTarget 返回绑定事件的元素
+      let parentElement = event.currentTarget.parentElement;
+      // changedTouches：涉及(引发)当前事件的手指的一个列表
+      this.endX = event.changedTouches[0].clientX;
+      // dataset 访问 data-* 自定义数据属性
+      if (parentElement.dataset.type == 0 && this.startX - this.endX > 30) {
+        // 一次只能滑动一个
+        this._resetSlide();
+        parentElement.dataset.type = 1;
+      }
 
+      if (parentElement.dataset.type == 1 && this.startX - this.endX < -30) {
+        this._resetSlide();
+        parentElement.dataset.type = 0;
+      }
     },
+    /*
+     * 重置所有滑动块
+     */
+    _resetSlide () {
+      // querySelectorAll 方法返回文档中匹配指定 CSS 选择器的所有元素
+      let listItems = document.querySelectorAll('.list-item');
+
+      for (let item of listItems) {
+        item.dataset.type = 0;
+      }
+    },
+    /*
+     * 检查所有列表是否有处于滑动状态
+     */
+    _checkSlide () {
+      // querySelectorAll 方法返回文档中匹配指定 CSS 选择器的所有元素
+      let listItems = document.querySelectorAll('.list-item');
+
+      for (let item of listItems) {
+        if (item.dataset.type == 1) {
+          return true;
+        }
+      }
+      return false;
+    },
+    /*
+    * 处理单个元素点击
+    */
+    handleClick () {
+      if (this._checkSlide()) {
+        this._resetSlide();
+      } else {
+        window.alert('点击了！');
+      }
+    },
+    /*
+     * 删除 item
+     */
+     deleteItem (event) {
+       let index = event.currentTarget.dataset.index;
+       this._resetSlide();
+       this.list.splice(index, 1);
+     }
   }
 };
 </script>
