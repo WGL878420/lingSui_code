@@ -1,0 +1,63 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>匀速动画</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  #box {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    position: absolute;
+  }
+  </style>
+<body>
+  <button id="btn_1">奔跑吧，500</button>
+  <button id="btn_2">奔跑吧，1000</button>
+  <div id="box"></div>
+
+  <script>
+  var btn1 = document.getElementById('btn_1');
+  var btn2 = document.getElementById('btn_2');
+  var box = document.getElementById('box');
+  /**
+    为什么会越点越快？
+    点击一次就会调用一次定时器，点击的次数越多，调用的就越多
+    距离叠加的就会越来越大 视觉效果上看起来就跑的越来越快
+
+    解决；只要在每次点击后，定时器执行前清除上一次定时器，就不会出现越点越快的效果了
+  */
+
+  function animate(element, target, num) {
+    clearInterval(element.timer);
+
+    element.timer = setInterval(function() {
+      var boxLeft = box.offsetLeft;
+      // 定义一个距离 相当于每一次要跑的距离 step
+      var step = target > boxLeft ? num : -num;
+      var distance = Math.abs(target - boxLeft);
+
+      if (distance >= Math.abs(step)) {
+        // 将距离赋值给box
+        box.style.left = boxLeft + step + 'px';
+      } else {
+        element.timer && clearInterval(element.timer);
+      }
+    }, 15);
+  }
+
+  btn1.addEventListener('click', function() {
+    animate(box, 500, 9);
+  }, false);
+
+  btn2.addEventListener('click', function() {
+    animate(box, 1000, 5);
+  }, false);
+
+  </script>
+</body>
+</html>
