@@ -46,6 +46,7 @@
         box.style.left = boxLeft + step + 'px';
       } else {
         element.timer && clearInterval(element.timer);
+        element.style.left = target + 'px';
       }
     }, 15);
   }
